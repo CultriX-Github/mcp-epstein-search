@@ -49,11 +49,6 @@ Examples:
         action="store_true",
         help="Output results as JSON"
     )
-    parser.add_argument(
-        "--urls-only", "-u",
-        action="store_true",
-        help="Only output PDF URLs (one per line)"
-    )
 
     args = parser.parse_args()
 
@@ -69,9 +64,6 @@ Examples:
     if args.json:
         output = [r.raw for r in results if r.raw]
         print(json.dumps(output, indent=2))
-    elif args.urls_only:
-        for r in results:
-            print(encode_url(r.url))
     else:
         for r in results:
             print(encode_url(r.url))
