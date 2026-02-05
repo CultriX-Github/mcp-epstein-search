@@ -69,8 +69,6 @@ class EpsteinClient:
             "Sec-Fetch-Site": "same-origin",
         })
 
-        # Required cookies
-        self.session.cookies.set("justiceGovAgeVerified", "true", domain="www.justice.gov")
 
     def search(self, query: str, limit: Optional[int] = None) -> list[SearchResult]:
         """
